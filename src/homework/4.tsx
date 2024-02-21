@@ -24,7 +24,7 @@ type PropsProvider = {
   children: ReactNode;
 };
 
-function MenuProvider({ children }: PropsProvider) {
+function MenuProvider({ children }: PropsProvider): JSX.Element {
   const [selectedMenu, setSelectedMenu] = useState<MenuSelected["selectedMenu"]>({});
 
   const menuContextAction = useMemo(
@@ -54,7 +54,7 @@ type PropsMenu = {
   menus: Menu[];
 };
 
-function MenuComponent({ menus }: PropsMenu) {
+function MenuComponent({ menus }: PropsMenu): JSX.Element {
   const { onSelectedMenu } = useContext(MenuActionContext);
   const { selectedMenu } = useContext(MenuSelectedContext);
 
@@ -69,7 +69,7 @@ function MenuComponent({ menus }: PropsMenu) {
   );
 }
 
-export function ComponentApp() {
+export function ComponentApp(): JSX.Element {
   const menus: Menu[] = [
     {
       id: "first",

@@ -5,7 +5,7 @@ type Props = {
   onContentEndVisible: () => void;
 };
 
-export function Observer({ children, onContentEndVisible }: Props) {
+export const Observer: React.FC<Props> = ({ children, onContentEndVisible }) => {
   const endContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 
 type State = {
   isRequestInProgress: boolean;
-  requestStep: "idle" | "start" | "pending" | "finished"; // Оновлено визначення для requestStep
+  requestStep: "idle" | "start" | "pending" | "finished";
 };
 
 type Action =
@@ -31,7 +31,7 @@ function requestReducer(state: State, action: Action): State {
   }
 }
 
-export function RequestComponent() {
+export const RequestComponent: React.FC = () => {
   const [requestState, requestDispatch] = useReducer(requestReducer, initialState);
 
   const startRequest = () => {
@@ -44,7 +44,7 @@ export function RequestComponent() {
     }, 2000);
   };
 
-  const resetRequest = () => {
+  const resetRequest = (): void => {
     requestDispatch({ type: "RESET_REQUEST" });
   };
 
@@ -55,6 +55,6 @@ export function RequestComponent() {
       <p>Стан запиту: {requestState.requestStep}</p>
     </div>
   );
-}
+};
 
 export default RequestComponent;
